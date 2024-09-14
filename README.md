@@ -1,6 +1,7 @@
 # WEB2 TPE 1er entrega
 ### Consigna
 Se propone diseñar una base de datos que pueda almacenar un conjunto de elementos clasificados en categorías.
+La presente base de datos guardará informacion sobre peículas, será parte de una aplicación que permita descubrir una breve lista de las películas actualmente más populares, pudiendo filtrarlas por género o productora.
 
 ### Modelo de datos
 Las entidades "genre" y "production_company" se relacionan de 1 a N con la entidad "movie", ya que una película podrá tener un solo género y una sola compañia, pero un género y/o una compañia podran tener una o más películas.
