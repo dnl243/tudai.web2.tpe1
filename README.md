@@ -1,4 +1,4 @@
-# WEB2 TPE 1er entrega
+## WEB2 TPE 1er entrega
 ### Consigna
 Se propone diseñar una base de datos que pueda almacenar un conjunto de elementos clasificados en categorías.
 La presente base de datos guardará informacion sobre peículas, será parte de una aplicación que permita descubrir una breve lista de las películas actualmente más populares, pudiendo filtrarlas por género o productora.
@@ -13,3 +13,6 @@ La entidad "genre" tiene como clave primaria "id_genre".
 La entidad "production_company" tiene como clave primaria "id_company".
 
 <img width="500" src="https://github.com/user-attachments/assets/5b8a648e-a547-400f-bef7-392e9e7a10d4">
+
+### Estudiantes
+Fuentes Daniel - Hernandez Sebastian
