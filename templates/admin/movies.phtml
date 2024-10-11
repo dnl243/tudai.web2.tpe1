@@ -1,0 +1,33 @@
+<main class="container-fluid d-flex justify-content-center">
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col">id_movie</th>
+        <th scope="col">title</th>
+        <th scope="col">poster_path</th>
+        <th scope="col">release_date</th>
+        <th scope="col">overview</th>
+        <th scope="col">company</th>
+        <th scope="col">main_genre</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($movies as $key => $movie) : ?>
+        <tr>
+          <th scope="row"><?= $movie->id_movie ?></th>
+          <td><?= $movie->title ?></td>
+          <td><?= $movie->poster_path ?></td>
+          <td><?= $movie->release_date ?></td>
+          <td><?= $movie->overview ?></td>
+          <td><?= $movie->company ?></td>
+          <td><?= $movie->main_genre ?></td>
+          <td class="d-flex flex-column">
+            <a href="showEdit/<?= urlencode($movie->title) ?>" class="btn btn-success mb-3">edit</a>
+            <a href="delete/<?= urlencode($movie->title) ?>" class="btn btn-danger mb-3">delete</a>
+          </td>
+        </tr>
+      <?php endforeach ?>
+    </tbody>
+  </table>
+</main>
