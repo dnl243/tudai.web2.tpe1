@@ -12,7 +12,7 @@
         </div>
         <div class="card-body">
           <p class="card-text"><?= $movie->company ?></p>
-          <a href="genre/<?= $movie->main_genre ?>" class="card-link"><?= $movie->main_genre ?></a>
+          <a href="genre/<?= urlencode($movie->main_genre) ?>" class="card-link"><?= $movie->main_genre ?></a>
         </div>
       </div>
     </div>

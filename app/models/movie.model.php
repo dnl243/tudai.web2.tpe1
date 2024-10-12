@@ -27,18 +27,20 @@ class MovieModel
         (12, 'aventura'),
         (14, 'fantasia'),
         (16, 'animación'),
+        (18, 'drama'),
         (27, 'terror'),
         (28, 'acción'),
         (35, 'comedia'),
         (53, 'suspenso'),
         (80, 'crimen'),
         (878, 'ciencia fición'),
+        (10749, 'romance'),
         (10751, 'familia');
         
         CREATE TABLE `movie` (
         `id_movie` int(11) NOT NULL,
-        `title` varchar(45) NOT NULL,
-        `poster_path` varchar(70) NOT NULL,
+        `title` varchar(60) NOT NULL,
+        `poster_path` varchar(45) NOT NULL,
         `release_date` date NOT NULL,
         `overview` text NOT NULL,
         `company` varchar(45) NOT NULL,
@@ -51,10 +53,22 @@ class MovieModel
         (533535, 'Deadpool y Wolverine', '/9TFSqghEHrlBMRR63yTx80Orxva.jpg', '2024-07-24', 'Un Wade Wilson apático se esfuerza en la vida civil. Sus días como el mercenario moralmente flexible Deadpool quedaron atrás. Cuando su mundo natal se enfrenta a una amenaza existencial, Wade debe, a regañadientes, volver a la acción junto a un reacio Wolverine.\r\n', 'Marvel Studios', 28),
         (573435, 'Bad Boys: Hasta la muerte', '/zp0Y7Nsl4UnWiwX4LxXQXgDfXSz.jpg', '2024-06-05', 'Tras escuchar falsas acusaciones sobre su excapitán y mentor Mike y Marcus deciden investigar el asunto incluso volverse los más buscados de ser necesarios.', 'Sony Pictures Releasing', 28),
         (646097, 'Rebel Ridge', '/ymTgBQ8rCouE27oHpAUfgKEgRAj.jpg', '2024-08-27', 'Un exmarine debe enfrentarse a la corrupción en un pequeño pueblo cuando la policía le confisca injustamente la bolsa con el dinero para pagar la fianza de su primo.\r\n', 'Netflix', 80),
+        (726139, 'Project Silence', '/7eYasyaCvfJRHdnYl24jqPhf9y0.jpg', '2024-07-11', 'Debido al repentino deterioro de las condiciones meteorológicas, la visibilidad en el puente del aeropuerto se ve gravemente afectada, lo que deja a las personas atrapadas y en riesgo de que el puente se derrumbe debido a una serie de colisiones en cadena y explosiones. En medio del caos, los sujetos caninos \\\"Echo\\\" del experimento militar \\\"Proyecto Silencio\\\", que estaban siendo transportados en secreto, se liberan y todos los supervivientes humanos se convierten en blanco de ataques implacables.', 'Blaad Studios', 878),
+        (823219, 'Flow', '/enRimDhtFfb7hNTQlOjrgK8O8UO.jpg', '2024-08-30', 'El mundo parece estar llegando a su fin, repleto de vestigios de presencia humana. Gato es un animal solitario, pero como su hogar es arrasado por una gran inundación, encuentra refugio en un barco poblado por varias especies, y tendrá que hacer equipo con ellas a pesar de sus diferencias. En el solitario barco que navega por místicos paisajes desbordados, navegan por los desafíos y peligros de adaptarse a este nuevo mundo..', 'Dream Well Studio', 12),
+        (877817, 'Wolfs', '/uNNVMzJg7NVqxRu8mDLEwIiQgDJ.jpg', '2024-09-20', 'Dos “solucionadores” rivales cruzan sus caminos cuando los llaman a ambos para ayudar a ocultar el desliz de una importante funcionaria de Nueva York. Durante una noche muy intensa, deberán dejar de lado sus pequeñas rencillas -y sus egos- para terminar el trabajo.', 'Smoke House Pictures', 53),
         (889737, 'Joker: Folie à Deux', '/tMMYwxrPwVPrxz3DqXs8DnVIOx0.jpg', '2024-10-01', 'Secuela de Joker (2019), de nuevo con Phoenix como Arthur Fleck, y que muestra su relación con el personaje de Harley Quinn, interpretado por Lady Gaga.', 'Warner Bros Pictures', 80),
         (917496, 'Beetlejuice Beetlejuice', '/kWJw7dCWHcfMLr0irTHAPIKrJ4I.jpg', '2024-09-04', 'Después de una tragedia familiar, tres generaciones de la familia Deetz regresan a su hogar en Winter River. La vida de Lydia, que aún sigue atormentada por Beetlejuice, da un vuelco cuando su hija adolescente, Astrid, abre accidentalmente el portal al más allá.\r\n', 'Warner Bros. Pictures', 35),
+        (933260, 'La sustancia', '/uZXQExGj9YfVNH2XCS5yVjx0auh.jpg', '2024-09-09', '\\\"Tú, pero mejor en todos los sentidos\\\". Esa es la promesa de La Sustancia, un producto revolucionario basado en la división celular, que crea un alter ego más joven, más bello, más perfecto.', 'Working Title Films', 878),
+        (957452, 'El Cuervo', '/X9iFHeIYgfqoZImvdidx8b9v4R.jpg', '2024-08-21', 'Un año después de que él y su prometida fueran asesinados, un cuervo místico devuelve a Eric a la vida para que pueda clamar su venganza.', 'Davis Films', 14),
         (1022789, 'IntensaMente 2', '/aQnbNiadeGzGSjWLaXyeNxpAUIx.jpg', '2024-06-11', 'Riley, ahora adolescente, enfrenta una reforma en la Central de sus emociones. Alegría, Tristeza, Ira, Miedo y Asco deben adaptarse a la llegada de nuevas emociones: Ansiedad, Vergüenza, Envidia y Ennui.', 'Pixar Animation Studios', 16),
-        (1184918, 'Robot salvaje', '/sDoXpaKZmrzCSJH63zZvQQ9A7VK.jpg', '2024-09-12', 'Una robot (la unidad ROZZUM 7134 o «Roz») ha naufragado en una isla deshabitada y deberá aprender a adaptarse al duro entorno, forjando poco a poco relaciones con la fauna local y convirtiéndose en madre adoptiva de una cría de ganso huérfana.', 'DreamWorks Animation', 16);
+        (1034541, 'Terrifier 3', '/5eECVdOWwbsUARVxLA7ENyBYx3H.jpg', '2024-10-09', 'Secuela de \\\"Terrifier 2\\\", ambientada en el periodo navideño.', 'Cineverse', 27),
+        (1079091, 'Romper el círculo', '/2EH42blLQzgqwDWxn39RXkTgb91.jpg', '2024-08-07', 'Una mujer atraviesa las tumultuosas etapas de una relación abusiva. Tras mudarse a la ciudad de Boston después de la universidad, decide iniciar su propio negocio como florista y se enamora de un joven neurocirujano.', 'Wayfarer Studios', 10749),
+        (1114513, 'No hables con extraños', '/rdGpSGWNnpHuouEJjXOkzbTyRJk.jpg', '2024-09-11', 'Cuando una familia estadounidense va invitada a pasar un fin de semana en la idílica finca campestre de una encantadora familia británica que conocieron en unas vacaciones, lo que comienza como una escapada de ensueño pronto se convierte en una retorcida pesadilla psicológica.', 'Blumhouse Productions', 27),
+        (1125510, 'El hoyo 2', '/8cnfdskwEmS1HZhenEVYt9P0IYa.jpg', '2024-09-27', 'Un misterioso líder ha impuesto su ley en un brutal sistema de celdas verticales, pero la llegada de una residente desafía su dudoso método de distribución de comida.', 'Basque Films', 18),
+        (1184918, 'Robot salvaje', '/sDoXpaKZmrzCSJH63zZvQQ9A7VK.jpg', '2024-09-12', 'Una robot (la unidad ROZZUM 7134 o «Roz») ha naufragado en una isla deshabitada y deberá aprender a adaptarse al duro entorno, forjando poco a poco relaciones con la fauna local y convirtiéndose en madre adoptiva de una cría de ganso huérfana.', 'DreamWorks Animation', 16),
+        (1215162, 'Mátalos a todos 2', '/rWS8Wo9aN90GcokuvpMNjJYRijA.jpg', '2024-10-24', 'Philip y Suzanne, ahora agentes asociados por la CIA, se dirigen a Europa en una nueva misión.', 'Iervolino & Lady Bacardi Entertainment', 53),
+        (1329336, 'Los tipos malos: ¿Truco o atraco?', '/4njXv4s77hq9VGMOquvRQDiu53W.jpg', '2024-10-02', 'La pícara banda de los tipos malos planea un arriesgadísimo atraco en Halloween de un valioso amuleto en una tenebrosa mansión. ¿Qué podría salir mal?', 'DreamWorks Animation Television', 35),
+        (1337309, 'Corrupción en Bangkok: Entre el cielo y el infierno', '/45Yxq9aEfMgPEq6bGZG0BgbDQge.jpg', '2024-09-26', 'Un rescatista debe luchar por sobrevivir tras verse atrapado en un conflicto entre bandas rivales de los bajos fondos de Bangkok.', 'Kongkiat Production', 18);
         
         CREATE TABLE `user` (
         `id_user` int(11) NOT NULL,

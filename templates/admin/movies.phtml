@@ -19,7 +19,7 @@
           <td><?= $movie->title ?></td>
           <td><?= $movie->poster_path ?></td>
           <td><?= $movie->release_date ?></td>
-          <td><?= $movie->overview ?></td>
+          <td><?= substr($movie->overview, 0, 100) ?></td>
           <td><?= $movie->company ?></td>
           <td><?= $movie->main_genre ?></td>
           <td class="d-flex flex-column">

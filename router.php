@@ -21,8 +21,16 @@ $params = explode('/', $action);
 // home         MovieController->showMovies();
 // movie/:id    MovieController->showMovie($id);
 // genres       MovieController->showGenres();
-// genre/:id    MovieController->showGenre($id);
-// login        AdminController->showLogin();
+// genre/:id    MovieController->showMoviesByGenre($id);
+// showLogin    AuthController->showLogin();
+// login        AuthController->login();
+// logout       AdminController->logout();
+// showList     AdminController->showList();
+// showAdd      AdminController->showAdd();
+// add          AdminController->add();
+// delete       AdminController->delete();
+// showEdit     AdminController->showEdit();
+// edit         AdminController->edit();
 
 switch ($params[0]) {
   case 'home':
