@@ -91,6 +91,36 @@ switch ($params[0]) {
     $contoller = new AdminController();
     $contoller->edit();
     break;
+  case 'showGenreList':
+    sessionAuthMiddleware($req);
+    $contoller = new AdminController();
+    $contoller->showGenreList();
+    break;
+  case 'showAddGenre':
+    sessionAuthMiddleware($req);
+    $contoller = new AdminController();
+    $contoller->showAddGenre();
+    break;
+  case 'addGenre':
+    sessionAuthMiddleware($req);
+    $contoller = new AdminController();
+    $contoller->addGenre();
+    break;
+  case 'deleteGenre':
+    sessionAuthMiddleware($req);
+    $contoller = new AdminController();
+    $contoller->deleteGenre($params[1]);
+    break;
+  case 'showGenreEdit':
+    sessionAuthMiddleware($req);
+    $contoller = new AdminController();
+    $contoller->showGenreEdit($params[1]);
+    break;
+  case 'editGenre':
+    sessionAuthMiddleware($req);
+    $contoller = new AdminController();
+    $contoller->editGenre($params[1]);
+    break;
   default:
     $controller = new MovieController();
     $controller->showError("404 Page Not Found");

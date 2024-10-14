@@ -1,27 +1,22 @@
 <main class="container-fluid mt-3">
   <form action="edit" method="post" class="text-center">
     <div class="mb-3">
-      <input type="number" name="id_movie" class="form-control" readonly placeholder="id_movie"
-        value="<?= $movie->id_movie ?>">
+      <input type="number" name="id_movie" class="form-control" readonly value="<?= $movie->id_movie ?>">
     </div>
     <div class="mb-3">
-      <input type="text" name="title" class="form-control" required placeholder="title"
-        value="<?= $movie->title ?>">
+      <input type="text" name="title" class="form-control" required value="<?= $movie->title ?>">
     </div>
     <div class="mb-3">
-      <input type="text" name="poster_path" class="form-control" required placeholder="poster_path"
-        value="<?= $movie->poster_path ?>">
+      <input type="text" name="poster_path" class="form-control" required value="<?= $movie->poster_path ?>">
     </div>
     <div class="mb-3">
-      <input type="date" name="release_date" class="form-control" required placeholder="release_date"
-        value="<?= $movie->release_date ?>">
+      <input type="date" name="release_date" class="form-control" required value="<?= $movie->release_date ?>">
     </div>
     <div class="mb-3">
-      <textarea name="overview" class="form-control" placeholder="overview" required><?= $movie->overview ?></textarea>
+      <textarea name="overview" class="form-control" required><?= $movie->overview ?></textarea>
     </div>
     <div class="mb-3">
-      <input type="text" name="company" class="form-control" required placeholder="company"
-        value="<?= $movie->company ?>">
+      <input type="text" name="company" class="form-control" required value="<?= $movie->company ?>">
     </div>
     <select class="form-select mb-3" name="id_genre">
       <option disabled>genre</option>

@@ -66,7 +66,6 @@ class AdminController
       return $this->view->showError("'id_genre' field must be complete");
     }
 
-
     $id_movie = $_POST['id_movie'];
     $title = $_POST['title'];
     $poster_path = $_POST['poster_path'];
@@ -75,47 +74,44 @@ class AdminController
     $company = $_POST['company'];
     $id_genre = $_POST['id_genre'];
 
-    $movie = $this->model->getMovieByTitle($title);
+    $movie = $this->model->getMovie(null, $title);
 
     if (!$movie) {
       $id = $this->model->add($id_movie, $title, $poster_path, $release_date, $overview, $company, $id_genre);
+
+      // redirijo al panel admin
+      header('Location: ' . BASE_URL . 'showList');
     } else {
       $this->view->showError('this movie already exists in your database');
     }
-
-    // redirijo al panel admin
-    header('Location: ' . BASE_URL . 'showList');
   }
 
   // eliminar una película
   public function delete($title)
   {
-    $movie = $this->model->getMovieByTitle($title);
+    $movie = $this->model->getMovie(null, $title);
 
     if ($movie) {
       $this->model->delete($title);
+
+      // redirijo al panel admin
+      header('Location: ' . BASE_URL . 'showList');
     } else {
       $this->view->showError('the movie you want to delete does not exist');
     }
-
-    // redirijo al panel admin
-    header('Location: ' . BASE_URL . 'showList');
   }
 
   // formulario para editar película
   public function showEdit($title)
   {
     $genres = $this->model->getGenres();
-    $movie = $this->model->getMovieByTitle($title);
+    $movie = $this->model->getMovie(null, $title);
 
     if ($movie) {
       $this->view->showEdit($genres, $movie);
     } else {
-      $this->view->showError('this movie already exists in your database');
+      $this->view->showError('this movie does not exist in your database');
     }
-
-    // redirijo al panel admin
-    header('Location: ' . BASE_URL . 'showList');
   }
 
   // editar una película
@@ -152,15 +148,112 @@ class AdminController
     $company = $_POST['company'];
     $id_genre = $_POST['id_genre'];
 
-    $movie = $this->model->getMovieById($id_movie);
+    $movie = $this->model->getMovie($id_movie, null);
 
     if ($movie) {
       $id = $this->model->edit($id_movie, $title, $poster_path, $release_date, $overview, $company, $id_genre);
+
+      // redirijo al panel admin
+      header('Location: ' . BASE_URL . 'showList');
     } else {
       $this->view->showError('the movie you want to modify does not exist');
     }
-
-    // redirijo al panel admin
-    header('Location: ' . BASE_URL . 'showList');
   }
+
+  // panel con lista de géneros
+  public function showGenreList()
+  {
+    $genres = $this->model->getGenres();
+
+    if ($genres) {
+      $this->view->showGenreList($genres);
+    } else {
+      $this->view->showError("genres not found");
+    }
+  }
+
+  // formulario para insertar un género
+  public function showAddGenre()
+  {
+    $this->view->showAddGenre();
+  }
+
+  // insertar un género
+  public function addGenre()
+  {
+    if (!isset($_POST['id_genre']) || empty($_POST['id_genre'])) {
+      return $this->view->showError("'id_genre' field must be complete");
+    }
+    if (!isset($_POST['main_genre']) || empty($_POST['main_genre'])) {
+      return $this->view->showError("'main_genre' field must be complete");
+    }
+
+    $id_genre = $_POST['id_genre'];
+    $main_genre = $_POST['main_genre'];
+
+    $genre = $this->model->getGenre($id_genre, $main_genre);
+
+    if (!$genre) {
+      $id = $this->model->addGenre($id_genre, $main_genre);
+
+      // redirijo al panel admin
+      header('Location: ' . BASE_URL . 'showGenreList');
+    } else {
+      $this->view->showError('this genre already exists in your database');
+    }
+  }
+
+  // eliminar un género
+  public function deleteGenre($main_genre)
+  {
+    $genre = $this->model->getGenre(null, $main_genre);
+
+    if ($genre) {
+      $this->model->deleteGenre($main_genre);
+
+      // redirijo al panel admin
+      header('Location: ' . BASE_URL . 'showGenreList');
+    } else {
+      $this->view->showError('the genre you want to delete does not exist');
+    }
+  }
+  
+  // formulario para editar un género
+  public function showGenreEdit($main_genre)
+  {
+    $genre = $this->model->getGenre(null, $main_genre);
+
+    if ($genre) {
+      $this->view->showGenreEdit($genre);
+    } else {
+      $this->view->showError('this movie does not exist in your database');
+    }
+  }
+
+  // editar un género
+  public function editGenre()
+  {
+
+    if (!isset($_POST['id_genre']) || empty($_POST['id_genre'])) {
+      return $this->view->showError("'id_genre' field must be complete");
+    }
+    if (!isset($_POST['main_genre']) || empty($_POST['main_genre'])) {
+      return $this->view->showError("'main_genre' field must be complete");
+    }
+
+    $id_genre = $_POST['id_genre'];
+    $main_genre = $_POST['main_genre'];
+
+    $genre = $this->model->getGenre($id_genre, null);
+
+    if ($genre) {
+      $id = $this->model->editGenre($main_genre, $id_genre);
+
+      // redirijo al panel admin
+      header('Location: ' . BASE_URL . 'showGenreList');
+    } else {
+      $this->view->showError('the movie you want to modify does not exist');
+    }
+  }
+
 }

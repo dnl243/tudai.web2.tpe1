@@ -29,7 +29,7 @@ class MovieController
   // detalle de peícula
   public function showMovie($title)
   {
-    $movie = $this->model->getMovieByTitle($title);
+    $movie = $this->model->getMovie(null, $title);
 
     if ($movie) {
       $this->view->showMovie($movie);
