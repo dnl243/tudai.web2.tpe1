@@ -21,8 +21,8 @@
 
 - Iniciar Apache y phpMyAdmin.
 - Clonar el repositorio "https://github.com/dnl243/tudai.web2.tpe1.git" dentro de la carpeta "C:\xampp\htdocs\".
-- En el browser ingresar en "http://localhost/phpmyadmin/".
 - En caso de ser necesario, en la raiz del proyecto, modificar el archivo config.php (usuario y contraseña de phpMyAdmin).
+- En el browser ingresar en "http://localhost/phpmyadmin/".
 
 --> Opcion 1 <--
 
