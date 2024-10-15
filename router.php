@@ -17,21 +17,6 @@ $action = empty($_GET['action']) ? 'home' : $_GET['action'];
 // parseo de $action para separar acción de parámetros
 $params = explode('/', $action);
 
-// TABLA DE RUTEO
-// home         MovieController->showMovies();
-// movie/:id    MovieController->showMovie($id);
-// genres       MovieController->showGenres();
-// genre/:id    MovieController->showMoviesByGenre($id);
-// showLogin    AuthController->showLogin();
-// login        AuthController->login();
-// logout       AdminController->logout();
-// showList     AdminController->showList();
-// showAdd      AdminController->showAdd();
-// add          AdminController->add();
-// delete       AdminController->delete();
-// showEdit     AdminController->showEdit();
-// edit         AdminController->edit();
-
 switch ($params[0]) {
   case 'home':
     $contoller = new MovieController();
@@ -119,10 +104,32 @@ switch ($params[0]) {
   case 'editGenre':
     sessionAuthMiddleware($req);
     $contoller = new AdminController();
-    $contoller->editGenre($params[1]);
+    $contoller->editGenre();
     break;
   default:
     $controller = new MovieController();
     $controller->showError("404 Page Not Found");
     break;
 }
+
+
+// TABLA DE RUTEO
+// home               MovieController->showMovies();
+// movie/:id          MovieController->showMovie($id);
+// genres             MovieController->showGenres();
+// genre/:id          MovieController->showMoviesByGenre($id);
+// showLogin          AuthController->showLogin();
+// login              AuthController->login();
+// logout             AdminController->logout();
+// showList           AdminController->showList();
+// showAdd            AdminController->showAdd();
+// add                AdminController->add();
+// delete/:id         AdminController->delete($id);
+// showEdit/:$id      AdminController->showEdit();
+// edit               AdminController->edit();
+// showGenreList      AdminController->showGenreList();
+// showAddGenre       AdminController->showAddGenre();
+// addGenre           AdminController->addGenre();
+// deleteGenre/:id    AdminController->deleteGenre($id);
+// showGenreEdit/:id  AdminController->showGenreEdit($id);
+// editGenre          AdminController->editGenre();
