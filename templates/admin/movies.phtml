@@ -15,16 +15,16 @@
     <tbody>
       <?php foreach ($movies as $key => $movie) : ?>
         <tr>
-          <th scope="row"><?= $movie->id_movie ?></th>
-          <td><?= $movie->title ?></td>
-          <td><?= $movie->poster_path ?></td>
-          <td><?= $movie->release_date ?></td>
-          <td><?= substr($movie->overview, 0, 100) ?></td>
-          <td><?= $movie->company ?></td>
-          <td><?= $movie->main_genre ?></td>
+          <th scope="row"><?= htmlspecialchars($movie->id_movie) ?></th>
+          <td><?= htmlspecialchars($movie->title) ?></td>
+          <td><?= htmlspecialchars($movie->poster_path) ?></td>
+          <td><?= htmlspecialchars($movie->release_date) ?></td>
+          <td><?= htmlspecialchars(substr($movie->overview, 0, 100)) ?></td>
+          <td><?= htmlspecialchars($movie->company) ?></td>
+          <td><?= htmlspecialchars($movie->main_genre) ?></td>
           <td class="d-flex flex-column">
-            <a href="showEdit/<?= urlencode($movie->title) ?>" class="btn btn-success mb-3">edit</a>
-            <a href="delete/<?= urlencode($movie->title) ?>" class="btn btn-danger mb-3">delete</a>
+            <a href="showEdit/<?= htmlspecialchars(urlencode($movie->title)) ?>" class="btn btn-success mb-3">edit</a>
+            <a href="delete/<?= htmlspecialchars(urlencode($movie->title)) ?>" class="btn btn-danger mb-3">delete</a>
           </td>
         </tr>
       <?php endforeach ?>

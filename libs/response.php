@@ -1,6 +1,6 @@
 <?php
 
-class Request
+class Response
 {
   public $user = null;
 }

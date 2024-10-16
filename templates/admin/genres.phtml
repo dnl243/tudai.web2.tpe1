@@ -10,11 +10,11 @@
     <tbody>
       <?php foreach ($genres as $key => $genre) : ?>
         <tr>
-          <th scope="row"><?= $genre->id_genre ?></th>
-          <td><?= $genre->main_genre ?></td>
+          <th scope="row"><?= htmlspecialchars($genre->id_genre) ?></th>
+          <td><?= htmlspecialchars($genre->main_genre) ?></td>
           <td>
-            <a href="showGenreEdit/<?= urlencode($genre->main_genre) ?>" class="btn btn-success mb-3">edit</a>
-            <a href="deleteGenre/<?= urlencode($genre->main_genre) ?>" class="btn btn-danger mb-3">delete</a>
+            <a href="showGenreEdit/<?= htmlspecialchars(urlencode($genre->main_genre)) ?>" class="btn btn-success mb-3">edit</a>
+            <a href="deleteGenre/<?= htmlspecialchars(urlencode($genre->main_genre)) ?>" class="btn btn-danger mb-3">delete</a>
           </td>
         </tr>
       <?php endforeach ?>

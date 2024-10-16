@@ -1,14 +1,14 @@
 <?php
 
-function sessionAuthMiddleware($req) {
+function sessionAuthMiddleware($res) {
   session_start();
   if (isset($_SESSION['id_user'])) {
-    $req->user = new stdClass();
-    $req->user->id_user = $_SESSION['id_user'];
-    $req->user->email = $_SESSION['email'];
+    $res->user = new stdClass();
+    $res->user->id_user = $_SESSION['id_user'];
+    $res->user->email = $_SESSION['email'];
     return;
   } else {
-    $controller = new MovieController($req);
+    $controller = new MovieController($res);
     $controller->showError("Please, login to continue..");
     die();
   }
