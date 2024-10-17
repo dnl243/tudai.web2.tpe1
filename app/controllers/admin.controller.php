@@ -50,8 +50,8 @@ class AdminController
     if (!isset($_POST['title']) || empty($_POST['title'])) {
       return $this->view->showError("'title' field must be complete");
     }
-    if (!isset($_POST['poster_path']) || empty($_POST['poster_path'])) {
-      return $this->view->showError("'poster_path' field must be complete");
+    if ($_FILES['poster_path']['type'] != "image/png" && $_FILES['poster_path']['type'] != "image/jpg" && $_FILES['poster_path']['type'] != "image/jpeg") {
+      return $this->view->showError("image loading error");
     }
     if (!isset($_POST['release_date']) || empty($_POST['release_date'])) {
       return $this->view->showError("'release_date' field must be complete");
@@ -68,7 +68,7 @@ class AdminController
 
     $id_movie = $_POST['id_movie'];
     $title = $_POST['title'];
-    $poster_path = $_POST['poster_path'];
+    $poster_path = $_FILES['poster_path'];
     $release_date = $_POST['release_date'];
     $overview = $_POST['overview'];
     $company = $_POST['company'];
@@ -76,14 +76,14 @@ class AdminController
 
     $movie = $this->model->getMovie(null, $title);
 
-    if (!$movie) {
-      $id = $this->model->add($id_movie, $title, $poster_path, $release_date, $overview, $company, $id_genre);
-
-      // redirijo al panel admin
-      header('Location: ' . BASE_URL . 'showList');
-    } else {
-      $this->view->showError('this movie already exists in your database');
+    if ($movie) {
+      return $this->view->showError('this movie already exists in your database');
     }
+
+    $id = $this->model->add($id_movie, $title, $poster_path, $release_date, $overview, $company, $id_genre);
+
+    // redirijo al panel admin
+    header('Location: ' . BASE_URL . 'showList');
   }
 
   // eliminar una película
@@ -124,8 +124,8 @@ class AdminController
     if (!isset($_POST['title']) || empty($_POST['title'])) {
       return $this->view->showError("'title' field must be complete");
     }
-    if (!isset($_POST['poster_path']) || empty($_POST['poster_path'])) {
-      return $this->view->showError("'poster_path' field must be complete");
+    if ($_FILES['poster_path']['type'] != "image/png" && $_FILES['poster_path']['type'] != "image/jpg" && $_FILES['poster_path']['type'] != "image/jpeg") {
+      return $this->view->showError("image loading error");
     }
     if (!isset($_POST['release_date']) || empty($_POST['release_date'])) {
       return $this->view->showError("'release_date' field must be complete");
@@ -142,7 +142,7 @@ class AdminController
 
     $id_movie = $_POST['id_movie'];
     $title = $_POST['title'];
-    $poster_path = $_POST['poster_path'];
+    $poster_path = $_FILES['poster_path'];
     $release_date = $_POST['release_date'];
     $overview = $_POST['overview'];
     $company = $_POST['company'];
@@ -217,7 +217,7 @@ class AdminController
       $this->view->showError('the genre you want to delete does not exist');
     }
   }
-  
+
   // formulario para editar un género
   public function showGenreEdit($main_genre)
   {
@@ -255,5 +255,4 @@ class AdminController
       $this->view->showError('the movie you want to modify does not exist');
     }
   }
-
 }

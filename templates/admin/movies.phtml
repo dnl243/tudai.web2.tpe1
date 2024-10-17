@@ -17,7 +17,7 @@
         <tr>
           <th scope="row"><?= htmlspecialchars($movie->id_movie) ?></th>
           <td><?= htmlspecialchars($movie->title) ?></td>
-          <td><?= htmlspecialchars($movie->poster_path) ?></td>
+          <td><?= htmlspecialchars(substr($movie->poster_path, 0, 20)) ?></td>
           <td><?= htmlspecialchars($movie->release_date) ?></td>
           <td><?= htmlspecialchars(substr($movie->overview, 0, 100)) ?></td>
           <td><?= htmlspecialchars($movie->company) ?></td>

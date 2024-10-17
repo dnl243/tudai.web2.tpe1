@@ -1,5 +1,5 @@
 <main class="container-fluid mt-3">
-  <form action="add" method="post" class="text-center">
+  <form action="add" method="post" enctype="multipart/form-data" class="text-center">
     <div class="mb-3">
       <input type="number" name="id_movie" class="form-control" required placeholder="id_movie">
     </div>
@@ -7,13 +7,13 @@
       <input type="text" name="title" class="form-control" required placeholder="title">
     </div>
     <div class="mb-3">
-      <input type="text" name="poster_path" class="form-control" required placeholder="poster_path">
+      <input type="file" name="poster_path" class="form-control" required>
     </div>
     <div class="mb-3">
       <input type="date" name="release_date" class="form-control" required placeholder="release_date">
     </div>
     <div class="mb-3">
-      <textarea name="overview" class="form-control" placeholder="overview" required></textarea>
+      <textarea name="overview" class="form-control" rows="3" placeholder="overview" required></textarea>
     </div>
     <div class="mb-3">
       <input type="text" name="company" class="form-control" required placeholder="company">
@@ -25,5 +25,6 @@
       <?php endforeach ?>        
     </select>
     <button type="submit" class="btn btn-primary">Confirm</button>
+    <a href="showList" class="btn btn-secondary">Cancel</a>
   </form>
 </main>
